@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>✏️ Edit Product</h2>
+
+<form method="POST">
+    <div class="form-group">
+        <label for="name">Product Name *</label>
+        <input type="text" id="name" name="name" value="{{ product.name }}" required>
+    </div>
+    
+    <div class="form-group">
+        <label for="description">Description</label>
+        <textarea id="description" name="description">{{ product.description }}</textarea>
+    </div>
+    
+    <div class="form-group">
+        <label for="quantity">Quantity *</label>
+        <input type="number" id="quantity" name="quantity" value="{{ product.quantity }}" required min="0">
+    </div>
+    
+    <div class="form-group">
+        <label for="price">Price (€) *</label>
+        <input type="number" id="price" name="price" step="0.01" value="{{ product.price }}" required min="0">
+    </div>
+    
+    <button type="submit" class="btn btn-success">Update Product</button>
+    <a href="/" class="btn">Cancel</a>
+</form>
+{% endblock %}
